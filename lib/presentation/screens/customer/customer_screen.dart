@@ -24,91 +24,7 @@ class CustomerScreen extends HookConsumerWidget {
       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
       child: Column(
         children: [
-          Row(
-            children: [
-              Text(
-                '고객관리',
-                style: const TextStyle().subTitle2,
-              ),
-              const SizedBox(width: 28),
-              Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  onTap: () async {
-                    await showAddCustomerDialog(
-                      context: context,
-                      title: '고객 추가하기',
-                      text: '고객을 얼른 추가하세요!',
-                      confirmText: '추가하기',
-                      cancelText: '취소',
-                      onConfirm: () {
-                        context.pop();
-                      },
-                      onCancel: () {
-                        context.pop();
-                      },
-                    );
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: whiteColor),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 20),
-                    child: Text(
-                      '직접추가하기',
-                      style: const TextStyle().button2,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 40),
-              Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  onTap: () async {
-                    await showSearchDialog(
-                      context: context,
-                      title: '찾고 싶은 내용을 입력해주세요',
-                      text: '',
-                      confirmText: '검색하기',
-                      cancelText: '취소',
-                      onConfirm: () {
-                        context.pop();
-                      },
-                      onCancel: () {
-                        context.pop();
-                      },
-                    );
-                  },
-                  child: Container(
-                    width: 400,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: whiteColor),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ImageUtil().getSvgAssetWidget(SvgAssetPath.searchMono,
-                            width: 20, height: 20, color: whiteColor),
-                        const SizedBox(width: 8),
-                        Text(
-                          '검색',
-                          style: const TextStyle()
-                              .subTitle2
-                              .copyWith(color: whiteColor),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          const _Header(),
           const SizedBox(height: 28),
           Expanded(
             child: SingleChildScrollView(
@@ -133,27 +49,27 @@ class CustomerScreen extends HookConsumerWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            _buildCategoryText(text: '고객명', width: 120),
+                            _buildCategoryText(text: '고객명', width: 160),
                             Container(width: 1, height: 24, color: gray200),
-                            _buildCategoryText(text: '고객 연락처', width: 180),
+                            _buildCategoryText(text: '고객 연락처', width: 220),
                             Container(width: 1, height: 24, color: gray200),
                             _buildCategoryText(text: '고객 이메일', width: 360),
                             Container(width: 1, height: 24, color: gray200),
                             _buildCategoryText(text: '고객 주소', width: 200),
                             Container(width: 1, height: 24, color: gray200),
-                            _buildCategoryText(text: '담당자', width: 120),
+                            _buildCategoryText(text: '담당자', width: 160),
                           ],
                         ),
                       ),
                       Container(
-                        width: 1200,
+                        width: 1480,
                         height: 0.5,
                         color: gray400,
                       ),
                       const SizedBox(height: 12),
                       Expanded(
                         child: SizedBox(
-                          width: 1200,
+                          width: 1480,
                           child: ListView.separated(
                             scrollDirection: Axis.vertical,
                             itemCount: customerDemoList.length + 1,
@@ -173,7 +89,7 @@ class CustomerScreen extends HookConsumerWidget {
                             },
                             separatorBuilder: (context, index) {
                               return Container(
-                                width: 1000,
+                                width: 1480,
                                 height: 0.5,
                                 color: gray300,
                               );
@@ -197,7 +113,7 @@ class CustomerScreen extends HookConsumerWidget {
     return SizedBox(
       width: width,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 28),
+        padding: const EdgeInsets.symmetric(horizontal: 40),
         child: SelectionArea(
           child: Text(
             text,
@@ -207,6 +123,112 @@ class CustomerScreen extends HookConsumerWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _Header extends ConsumerWidget {
+  const _Header();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Text(
+              '고객관리',
+              style: const TextStyle().title2,
+            ),
+            const SizedBox(width: 24),
+            Text('총 고객 수 : ${customerDemoList.length}명',
+                style: const TextStyle().body.copyWith(color: gray400)),
+          ],
+        ),
+        const SizedBox(height: 28),
+        Row(
+          children: [
+            Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: () async {
+                  await showAddCustomerDialog(
+                    context: context,
+                    title: '고객 초대하기',
+                    text: '고객을 얼른 추가하세요!',
+                    confirmText: '추가하기',
+                    cancelText: '취소',
+                    onConfirm: () {
+                      context.pop();
+                    },
+                    onCancel: () {
+                      context.pop();
+                    },
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: whiteColor),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                  child: Text(
+                    '고객 초대하기',
+                    style: const TextStyle().button2,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 40),
+            Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: () async {
+                  await showSearchDialog(
+                    context: context,
+                    title: '찾고 싶은 내용을 입력해주세요',
+                    text: '',
+                    confirmText: '검색하기',
+                    cancelText: '취소',
+                    onConfirm: () {
+                      context.pop();
+                    },
+                    onCancel: () {
+                      context.pop();
+                    },
+                  );
+                },
+                child: Container(
+                  width: 400,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: whiteColor),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ImageUtil().getSvgAssetWidget(SvgAssetPath.searchMono,
+                          width: 20, height: 20, color: whiteColor),
+                      const SizedBox(width: 8),
+                      Text(
+                        '검색',
+                        style: const TextStyle()
+                            .subTitle2
+                            .copyWith(color: whiteColor),
+                      ),
+                      const SizedBox(width: 28),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
@@ -239,11 +261,11 @@ class _CustomerListWidgetState extends ConsumerState<_CustomerListWidget> {
         _CustomerInfoWidget(
           text: widget.customerModel.customerName,
           isName: true,
-          width: 120,
+          width: 160,
         ),
         _CustomerInfoWidget(
           text: widget.customerModel.customerPhone,
-          width: 180,
+          width: 220,
         ),
         _CustomerInfoWidget(
           text: widget.customerModel.customerEmail,
@@ -262,7 +284,7 @@ class _CustomerListWidgetState extends ConsumerState<_CustomerListWidget> {
         ),
         _CustomerInfoWidget(
           text: widget.customerModel.assignedContractor[0].toString(),
-          width: 120,
+          width: 160,
           isName: true,
         ),
       ],
@@ -292,7 +314,7 @@ class _CustomerInfoWidget extends HookConsumerWidget {
     return SizedBox(
       width: width,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 28),
+        padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

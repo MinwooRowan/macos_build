@@ -8,7 +8,12 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class HomeSideBarWidget extends HookConsumerWidget {
   const HomeSideBarWidget({super.key});
-
+  static List<String> list = [
+    '코코멍 원장님',
+    '코코멍 선생님',
+    '코코멍 관리자',
+    '코코멍 방문자',
+  ];
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedItemIndex = ref.watch(homeContentIndexProvider);

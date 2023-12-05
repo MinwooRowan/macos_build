@@ -125,6 +125,7 @@
             "_$s18macos_window_utils28MainFlutterWindowManipulatorC15showCloseButtonyyFZ",
             "_macos_window_utilsVersionNumber",
             "_$s18macos_window_utils30MacOSWindowUtilsViewControllerC22getVisualEffectSubviewyAA0jkL0CSgSuFTq",
+            "_Swift51Overrides",
             "_$s18macos_window_utils27VisualEffectSubviewRegistryCMa",
             "_$s18macos_window_utils30MacOSWindowUtilsViewControllerC08_fluttergH033_2672DEF7C76BAB899F4C306004283DD9LLSo07FluttergH0CSgvpfi",
             "_$s18macos_window_utils024PresentationOptionNameToD16OptionsConverterCACycfc",
@@ -242,6 +243,7 @@
             "_$s18macos_window_utils30MacOSWindowUtilsViewControllerC07fluttergH0ACSo07FluttergH0CSg_tcfC",
             "_$s18macos_window_utils31ToolbarStyleNameToEnumConverterCfD",
             "_$s18macos_window_utils28MainFlutterWindowManipulatorC17addEmptyMaskImageyyFZ",
+            "_Swift50Overrides",
             "_$s18macos_window_utils29VisualEffectSubviewPropertiesC5stateSo08NSVisualE5StateVSgvpWvd",
             "_$s18macos_window_utils21FlutterWindowDelegateC16sizeToDictionary33_27CC8E53DD0C067742B301BC4505F08BLLySo12NSDictionaryCSo6CGSizeVF",
             "_$s18macos_window_utils27VisualEffectSubviewRegistryC08registerF0ySuAA0deF0CF",
@@ -359,6 +361,13 @@
             "PodsDummy_macos_window_utils",
             "_TtC18macos_window_utils19VisualEffectSubview"
           ]
+        },
+        "text": {
+          "global": [
+            "__ZN5swift39swift51override_conformsToSwiftProtocolEPKNS_14TargetMetadataINS_9InProcessEEEPKNS_24TargetProtocolDescriptorIS1_EEN7__swift9__runtime4llvm9StringRefEPFPKNS_35TargetProtocolConformanceDescriptorIS1_EES4_S8_SC_E",
+            "__Z34_swiftoverride_class_getSuperclassPKN5swift14TargetMetadataINS_9InProcessEEE",
+            "__ZN5swift34swift50override_conformsToProtocolEPKNS_14TargetMetadataINS_9InProcessEEEPKNS_24TargetProtocolDescriptorIS1_EEPFPKNS_18TargetWitnessTableIS1_EES4_S8_E"
+          ]
         }
       }
     ],
@@ -381,8 +390,8 @@
     ],
     "target_info": [
       {
-        "min_deployment": "11",
-        "target": "arm64-macos"
+        "min_deployment": "10.14.6",
+        "target": "x86_64-macos"
       }
     ]
   },

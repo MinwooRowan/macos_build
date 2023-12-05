@@ -13,19 +13,49 @@ class PipeLineScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 40),
-      child: Row(
+      child: Column(
         children: [
-          const _CardColumn(
-            color: greenEmotionColor,
-            title: 'COCOMUNG',
+          Row(
+            children: [
+              Text(
+                '파이프 라인',
+                style: const TextStyle().title2,
+              ),
+              const SizedBox(width: 24),
+              Text('관리중인 파이프라인 : 3개',
+                  style: const TextStyle().body.copyWith(color: gray400)),
+            ],
           ),
-          VerticalDivider(
-            color: whiteColor.withOpacity(0.2),
-            thickness: 0.5,
-          ),
-          const _CardColumn(
-            color: yellowEmotionColor,
-            title: 'QUOKKA',
+          const SizedBox(height: 28),
+          Expanded(
+            child: Row(
+              children: [
+                const _CardColumn(
+                  color: greenEmotionColor,
+                  title: 'COCOMUNG',
+                ),
+                VerticalDivider(
+                  color: whiteColor.withOpacity(0.2),
+                  thickness: 0.5,
+                ),
+                const _CardColumn(
+                  color: yellowEmotionColor,
+                  title: 'QUOKKA',
+                ),
+                VerticalDivider(
+                  color: whiteColor.withOpacity(0.2),
+                  thickness: 0.5,
+                ),
+                const _CardColumn(
+                  color: blueEmotionColor,
+                  title: 'MAKNAE',
+                ),
+                VerticalDivider(
+                  color: whiteColor.withOpacity(0.2),
+                  thickness: 0.5,
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -41,100 +71,172 @@ class _CardColumn extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ValueNotifier<List<bool>> isSelected = useState([false, false]);
 
-    return SizedBox(
-      width: 360,
-      child: Column(
-        children: [
-          Container(
-            width: 330,
-            height: 48,
-            decoration: BoxDecoration(
-              color: color.withOpacity(0.5),
-              borderRadius: BorderRadius.circular(8),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: SizedBox(
+        width: 360,
+        child: Column(
+          children: [
+            Container(
+              width: 360,
+              height: 48,
+              decoration: BoxDecoration(
+                color: color.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 12,
+                      height: 12,
+                      decoration: BoxDecoration(
+                        color: color,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      title,
+                      style: const TextStyle().body.copyWith(color: whiteColor),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
+            const SizedBox(height: 20),
+            Expanded(
+              child: ListView(
                 children: [
-                  Container(
-                    width: 12,
-                    height: 12,
-                    decoration: BoxDecoration(
-                      color: color,
-                      shape: BoxShape.circle,
+                  const SizedBox(height: 16),
+                  Draggable(
+                    feedback: _CardWidget(
+                      selected: isSelected.value[0],
+                      onTap: () {},
+                      title: 'COCOMUNG',
+                      customer: '멍멍유치원',
+                      contractorName: '최현종',
+                      price: '30.0',
+                      createdDate: '2023.10.01',
+                      updatedDate: '18 Hours',
+                    ),
+                    childWhenDragging: const SizedBox.shrink(),
+                    child: _CardWidget(
+                      selected: isSelected.value[0],
+                      onTap: () {
+                        if (isSelected.value[0] == true) {
+                          isSelected.value = [false, false];
+                        } else {
+                          isSelected.value = [true, false];
+                        }
+                      },
+                      title: 'COCOMUNG',
+                      customer: '멍멍유치원',
+                      contractorName: '최현종',
+                      price: '30.0',
+                      createdDate: '2023.10.01',
+                      updatedDate: '18 Hours',
                     ),
                   ),
-                  const SizedBox(width: 8),
-                  Text(
-                    title,
-                    style: const TextStyle().body.copyWith(color: whiteColor),
+                  Draggable(
+                    feedback: _CardWidget(
+                      selected: isSelected.value[1],
+                      onTap: () {},
+                      title: 'COCOMUNG',
+                      customer: '숲속 강아지마을',
+                      contractorName: '최현종',
+                      price: '20.0',
+                      createdDate: '2023.10.02',
+                      updatedDate: '2 Hours',
+                      customerColor: greenEmotionColor,
+                    ),
+                    childWhenDragging: const SizedBox.shrink(),
+                    child: _CardWidget(
+                      selected: isSelected.value[1],
+                      onTap: () {
+                        if (isSelected.value[1] == true) {
+                          isSelected.value = [false, false];
+                        } else {
+                          isSelected.value = [false, true];
+                        }
+                      },
+                      title: 'COCOMUNG',
+                      customer: '숲속 강아지마을',
+                      contractorName: '최현종',
+                      price: '20.0',
+                      createdDate: '2023.10.02',
+                      updatedDate: '2 Hours',
+                      customerColor: blueEmotionColor,
+                    ),
+                  ),
+                  Draggable(
+                    feedback: _CardWidget(
+                      selected: isSelected.value[1],
+                      onTap: () {},
+                      title: 'COCOMUNG',
+                      customer: '숲속 강아지마을',
+                      contractorName: '최현종',
+                      price: '20.0',
+                      createdDate: '2023.10.02',
+                      updatedDate: '2 Hours',
+                      customerColor: redEmotionColor,
+                    ),
+                    childWhenDragging: const SizedBox.shrink(),
+                    child: _CardWidget(
+                      selected: isSelected.value[1],
+                      onTap: () {
+                        if (isSelected.value[1] == true) {
+                          isSelected.value = [false, false];
+                        } else {
+                          isSelected.value = [false, true];
+                        }
+                      },
+                      title: 'COCOMUNG',
+                      customer: '숲속 강아지마을',
+                      contractorName: '최현종',
+                      price: '20.0',
+                      createdDate: '2023.10.02',
+                      updatedDate: '2 Hours',
+                      customerColor: redEmotionColor,
+                    ),
+                  ),
+                  Draggable(
+                    feedback: _CardWidget(
+                      selected: isSelected.value[1],
+                      onTap: () {},
+                      title: 'COCOMUNG',
+                      customer: '숲속 강아지마을',
+                      contractorName: '최현종',
+                      price: '20.0',
+                      createdDate: '2023.10.02',
+                      updatedDate: '2 Hours',
+                      customerColor: redEmotionColor,
+                    ),
+                    childWhenDragging: const SizedBox.shrink(),
+                    child: _CardWidget(
+                      selected: isSelected.value[1],
+                      onTap: () {
+                        if (isSelected.value[1] == true) {
+                          isSelected.value = [false, false];
+                        } else {
+                          isSelected.value = [false, true];
+                        }
+                      },
+                      title: 'COCOMUNG',
+                      customer: '숲속 강아지마을',
+                      contractorName: '최현종',
+                      price: '20.0',
+                      createdDate: '2023.10.02',
+                      updatedDate: '2 Hours',
+                      customerColor: yellowEmotionColor,
+                    ),
                   ),
                 ],
               ),
             ),
-          ),
-          const SizedBox(height: 16),
-          Draggable(
-            feedback: _CardWidget(
-              selected: isSelected.value[0],
-              onTap: () {},
-              title: 'COCOMUNG',
-              customer: '멍멍유치원',
-              contractorName: '최현종',
-              price: '30.0',
-              createdDate: '2023.10.01',
-              updatedDate: '18 Hours',
-            ),
-            childWhenDragging: const SizedBox.shrink(),
-            child: _CardWidget(
-              selected: isSelected.value[0],
-              onTap: () {
-                if (isSelected.value[0] == true) {
-                  isSelected.value = [false, false];
-                } else {
-                  isSelected.value = [true, false];
-                }
-              },
-              title: 'COCOMUNG',
-              customer: '멍멍유치원',
-              contractorName: '최현종',
-              price: '30.0',
-              createdDate: '2023.10.01',
-              updatedDate: '18 Hours',
-            ),
-          ),
-          Draggable(
-            feedback: _CardWidget(
-              selected: isSelected.value[1],
-              onTap: () {},
-              title: 'COCOMUNG',
-              customer: '숲속 강아지마을',
-              contractorName: '최현종',
-              price: '20.0',
-              createdDate: '2023.10.02',
-              updatedDate: '2 Hours',
-              customerColor: redEmotionColor,
-            ),
-            childWhenDragging: const SizedBox.shrink(),
-            child: _CardWidget(
-              selected: isSelected.value[1],
-              onTap: () {
-                if (isSelected.value[1] == true) {
-                  isSelected.value = [false, false];
-                } else {
-                  isSelected.value = [false, true];
-                }
-              },
-              title: 'COCOMUNG',
-              customer: '숲속 강아지마을',
-              contractorName: '최현종',
-              price: '20.0',
-              createdDate: '2023.10.02',
-              updatedDate: '2 Hours',
-              customerColor: redEmotionColor,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -140,7 +140,7 @@ class _LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 280,
-      height: 56,
+      height: 48,
       child: ElevatedButton(
         clipBehavior: Clip.antiAlias,
         onPressed: () {
@@ -168,7 +168,7 @@ class _LoginButton extends StatelessWidget {
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(
-                20,
+                12,
               ),
             ),
           ),

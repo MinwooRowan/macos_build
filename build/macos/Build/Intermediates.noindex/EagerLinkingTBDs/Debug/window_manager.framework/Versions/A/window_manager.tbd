@@ -46,9 +46,9 @@
             "_$s14window_manager13WindowManagerC12isFullScreenSbyF",
             "_$s14window_manager19WindowManagerPluginCMa",
             "_$sSo8NSWindowC14window_managerE12setStyleMaskyySb_So0aeF0VtF",
-            "_window_managerVersionString",
             "_$s14window_manager13WindowManagerC11isMinimizedSbyF",
             "_$s14window_manager19WindowManagerPluginCACycfC",
+            "_window_managerVersionString",
             "_$s14window_manager13WindowManagerC15setPreventCloseyySDySSypGFTq",
             "_$sSo6CGRectV14window_managerE7topLeftSo7CGPointVvM",
             "_$s14window_manager13WindowManagerC9isVisibleSbyFTq",
@@ -104,6 +104,7 @@
             "_$s14window_manager13WindowManagerC8setTitleyySDySSypGFTq",
             "_$s14window_manager19WindowManagerPluginC24RegisterGeneratedPluginsySo07FlutterE8Registry_pcSgvMZ",
             "_$s14window_manager13WindowManagerC9isFocusedSbyFTq",
+            "_Swift51Overrides",
             "_$s14window_manager19WindowManagerPluginC04mainC033_CCFE7F6D9B8E8C0FBDD222876E152058LLSo8NSWindowCvg",
             "_$s14window_manager13WindowManagerC14isPreventCloseSbyF",
             "_$s14window_manager13WindowManagerC16setTitleBarStyleyySDySSypGFTq",
@@ -177,6 +178,7 @@
             "_$s14window_manager13WindowManagerC9setBoundsyySDySSypGFTq",
             "_$s14window_manager19WindowManagerPluginC17ensureInitialized33_CCFE7F6D9B8E8C0FBDD222876E152058LLyyF",
             "_$s14window_manager13WindowManagerC9isVisibleSbyF",
+            "_Swift50Overrides",
             "_$s14window_manager13WindowManagerC0A13DidBecomeMainyy10Foundation12NotificationVF",
             "_$s14window_manager13WindowManagerC6undockyyFTq",
             "_$s14window_manager13WindowManagerC7restoreyyFTq",
@@ -246,6 +248,13 @@
             "PodsDummy_window_manager",
             "_TtC14window_manager13WindowManager"
           ]
+        },
+        "text": {
+          "global": [
+            "__ZN5swift39swift51override_conformsToSwiftProtocolEPKNS_14TargetMetadataINS_9InProcessEEEPKNS_24TargetProtocolDescriptorIS1_EEN7__swift9__runtime4llvm9StringRefEPFPKNS_35TargetProtocolConformanceDescriptorIS1_EES4_S8_SC_E",
+            "__Z34_swiftoverride_class_getSuperclassPKN5swift14TargetMetadataINS_9InProcessEEE",
+            "__ZN5swift34swift50override_conformsToProtocolEPKNS_14TargetMetadataINS_9InProcessEEEPKNS_24TargetProtocolDescriptorIS1_EEPFPKNS_18TargetWitnessTableIS1_EES4_S8_E"
+          ]
         }
       }
     ],
@@ -268,8 +277,8 @@
     ],
     "target_info": [
       {
-        "min_deployment": "11",
-        "target": "arm64-macos"
+        "min_deployment": "10.14.6",
+        "target": "x86_64-macos"
       }
     ]
   },
