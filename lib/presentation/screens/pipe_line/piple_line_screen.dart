@@ -13,51 +13,55 @@ class PipeLineScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 40),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Text(
-                '파이프 라인',
-                style: const TextStyle().title2,
-              ),
-              const SizedBox(width: 24),
-              Text('관리중인 파이프라인 : 3개',
-                  style: const TextStyle().body.copyWith(color: gray400)),
-            ],
-          ),
-          const SizedBox(height: 28),
-          Expanded(
-            child: Row(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
               children: [
-                const _CardColumn(
-                  color: greenEmotionColor,
-                  title: 'COCOMUNG',
+                Text(
+                  '파이프 라인',
+                  style: const TextStyle().title2,
                 ),
-                VerticalDivider(
-                  color: whiteColor.withOpacity(0.2),
-                  thickness: 0.5,
-                ),
-                const _CardColumn(
-                  color: yellowEmotionColor,
-                  title: 'QUOKKA',
-                ),
-                VerticalDivider(
-                  color: whiteColor.withOpacity(0.2),
-                  thickness: 0.5,
-                ),
-                const _CardColumn(
-                  color: blueEmotionColor,
-                  title: 'MAKNAE',
-                ),
-                VerticalDivider(
-                  color: whiteColor.withOpacity(0.2),
-                  thickness: 0.5,
-                ),
+                const SizedBox(width: 24),
+                Text('관리중인 파이프라인 : 3개',
+                    style: const TextStyle().body.copyWith(color: gray400)),
               ],
             ),
-          ),
-        ],
+            const SizedBox(height: 28),
+            Expanded(
+              child: Row(
+                children: [
+                  const _CardColumn(
+                    color: greenEmotionColor,
+                    title: 'COCOMUNG',
+                  ),
+                  VerticalDivider(
+                    color: whiteColor.withOpacity(0.2),
+                    thickness: 0.5,
+                  ),
+                  const _CardColumn(
+                    color: yellowEmotionColor,
+                    title: 'QUOKKA',
+                  ),
+                  VerticalDivider(
+                    color: whiteColor.withOpacity(0.2),
+                    thickness: 0.5,
+                  ),
+                  const _CardColumn(
+                    color: blueEmotionColor,
+                    title: 'MAKNAE',
+                  ),
+                  VerticalDivider(
+                    color: whiteColor.withOpacity(0.2),
+                    thickness: 0.5,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

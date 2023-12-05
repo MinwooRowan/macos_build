@@ -677,3 +677,5 @@ The Dart DevTools debugger and profiler is available at: http://127.0.0.1:51454/
 [WrapWithProviderScope] 2023-12-05T19:35:17.167324 #77     ServerPlugin._onRequest (package:analyzer_plugin/plugin/plugin.dart:599:18)
 [WrapWithProviderScope] 2023-12-05T19:35:17.167324 <asynchronous suspension>
 [WrapWithProviderScope] 2023-12-05T19:35:17.167324
+The Dart VM service is listening on http://127.0.0.1:58190/vqnUPydONhc=/
+The Dart DevTools debugger and profiler is available at: http://127.0.0.1:58190/vqnUPydONhc=/devtools?uri=ws://127.0.0.1:58190/vqnUPydONhc=/ws

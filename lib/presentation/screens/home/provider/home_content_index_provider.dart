@@ -10,6 +10,7 @@ enum HomeIndexEnum {
   costomer,
   pet,
   pipeLine,
+  attendence,
 }
 
 @riverpod
@@ -50,6 +51,13 @@ List<HomeContentModel> homeContent(HomeContentRef ref) {
       notificationCount: null,
       isSelected: false,
     ),
+    HomeContentModel(
+      title: '출석관리',
+      imagePath: SvgAssetPath.calendarCheckMono,
+      index: HomeIndexEnum.attendence.index,
+      notificationCount: null,
+      isSelected: false,
+    ),
   ];
 }
 
@@ -77,6 +85,9 @@ class HomeContentIndex extends _$HomeContentIndex {
       case 4:
         setIndexToPipeLine();
         break;
+      case 5:
+        setIndexToAttendence();
+        break;
 
       default:
     }
@@ -100,5 +111,9 @@ class HomeContentIndex extends _$HomeContentIndex {
 
   void setIndexToPipeLine() {
     state = 4;
+  }
+
+  void setIndexToAttendence() {
+    state = 5;
   }
 }

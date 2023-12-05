@@ -25,6 +25,7 @@ class HomeScreen extends HookConsumerWidget {
           const CustomerScreen(),
           Container(),
           const PipeLineScreen(),
+          Container(),
         ],
       ),
     );
