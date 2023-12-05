@@ -1,12 +1,14 @@
 import 'package:exe_test/core/constant/animation_path_constant.dart';
 import 'package:exe_test/presentation/layout/default_layout.dart';
-import 'package:exe_test/presentation/widgets/side_bar_frame.dart';
+import 'package:exe_test/presentation/screens/login/login_screen.dart';
+import 'package:exe_test/theme/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_acrylic/flutter_acrylic.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulHookConsumerWidget {
+  static const routeName = 'splash';
   const SplashScreen({super.key});
 
   @override
@@ -20,48 +22,45 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   void initState() {
     super.initState();
     _composition = AssetLottie(loadingIndicatorAnimationPath).load();
-    setWindowEffect(effect);
+    _goToLoginScreen();
   }
 
-  void setWindowEffect(WindowEffect? value) {
-    Window.setEffect(
-      effect: value!,
-      color: color,
-    );
-
-    setState(() => effect = value);
+  void _goToLoginScreen() {
+    Future.delayed(const Duration(seconds: 2), () {
+      context.goNamed(LoginScreen.routeName);
+    });
   }
-
-  WindowEffect effect = WindowEffect.acrylic;
-  Color color = Colors.white.withOpacity(0.3);
-
-  MacOSBlurViewState macOSBlurViewState =
-      MacOSBlurViewState.followsWindowActiveState;
 
   @override
   Widget build(BuildContext context) {
-    return TitlebarSafeArea(
-      child: SidebarFrame(
-        sidebar: const SizedBox.expand(),
-        macOSBlurViewState: macOSBlurViewState,
-        child: DefaultLayout(
-          child: Center(
-            child: FutureBuilder(
-                future: _composition,
-                builder: (context, snapshot) {
-                  final composition = snapshot.data;
-                  if (composition != null) {
-                    return Lottie(
-                      frameRate: FrameRate.max,
-                      composition: composition,
-                      width: 120,
-                      fit: BoxFit.cover,
-                    );
-                  } else {
-                    return const Center();
-                  }
-                }),
-          ),
+    return DefaultLayout(
+      backgroundColor: Colors.transparent,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            FutureBuilder(
+              future: _composition,
+              builder: (context, snapshot) {
+                final composition = snapshot.data;
+                if (composition != null) {
+                  return Lottie(
+                    frameRate: FrameRate.max,
+                    composition: composition,
+                    width: 80,
+                    fit: BoxFit.cover,
+                  );
+                } else {
+                  return const Center();
+                }
+              },
+            ),
+            const SizedBox(height: 20),
+            Text(
+              '코코멍을 준비중입니다...',
+              style: const TextStyle().title3,
+            ),
+          ],
         ),
       ),
     );

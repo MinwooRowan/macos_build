@@ -29,8 +29,11 @@ dependencies:
   intl: ^0.18.1
   hooks_riverpod: ^2.4.5
   riverpod_annotation: ^2.3.0
+  flutter_hooks: ^0.20.3
+  fluttertoast: ^8.2.2
 
   flutter_acrylic: ^1.1.3
+  window_manager: ^0.3.7
 
 dev_dependencies:
   flutter_test:
@@ -46,13 +49,13 @@ dev_dependencies:
 
 
 flutter:
-
-
   uses-material-design: true
   assets:
-    - assets/images/
     - assets/fonts/
     - assets/animation/
+    - assets/icons/
+    - assets/images/
+    - assets/images/logo/
 
   fonts:
     - family: Pretendard

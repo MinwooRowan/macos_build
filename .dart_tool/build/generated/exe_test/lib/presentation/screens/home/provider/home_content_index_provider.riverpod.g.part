@@ -1,0 +1,37 @@
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+String _$homeContentHash() => r'4891a3fda8077df30a05662abf6cf86d2e6d9e49';
+
+/// See also [homeContent].
+@ProviderFor(homeContent)
+final homeContentProvider =
+    AutoDisposeProvider<List<HomeContentModel>>.internal(
+  homeContent,
+  name: r'homeContentProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$homeContentHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef HomeContentRef = AutoDisposeProviderRef<List<HomeContentModel>>;
+String _$homeContentIndexHash() => r'e661fcae48892f69a772b699a5240086aef82353';
+
+/// See also [HomeContentIndex].
+@ProviderFor(HomeContentIndex)
+final homeContentIndexProvider =
+    NotifierProvider<HomeContentIndex, int>.internal(
+  HomeContentIndex.new,
+  name: r'homeContentIndexProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$homeContentIndexHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$HomeContentIndex = Notifier<int>;
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
